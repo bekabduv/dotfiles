@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Cleans up Vite project files and resets App components to boilerplate
 
 # Exit on error
 set -e

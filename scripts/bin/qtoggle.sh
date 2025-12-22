@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Application toggle script for X11 using xdotool and wmctrl to minimize/activate windows
 # Usage example: ./toggle.sh firefox
 
 if ! pgrep -x "$1" >/dev/null; then

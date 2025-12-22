@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Quick development server launcher that detects package manager and serves files/directories
 
 # Exit on error
 set -e

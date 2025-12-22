@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# File/directory search utility using kdialog GUI and fd, opens results in neovim
 
 # Exit on error
 set -e

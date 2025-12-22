@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Syncs dotfiles and VAULT repositories, then shuts down system with countdown
 
 if ! ping -c 1 8.8.8.8 &>/dev/null; then
   echo "_____YOU ARE OFFLINE_____"
@@ -20,12 +21,6 @@ cd ~/VAULT
 git add .
 git commit -m "Auto-sync"
 git push
-
-# stars="**********"
-# for x in {10..0}; do
-#   echo -ne "\rShutting down in $x second(s) ${stars:0:$x}"
-#   sleep 1
-# done
 
 cowsay_output_len=0
 for x in {10..0}; do

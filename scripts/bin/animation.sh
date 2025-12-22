@@ -1,4 +1,5 @@
 #!/bin/bash
+# Displays a countdown animation with colored progress bar for system shutdown
 
 # Colors
 GREEN='\033[0;32m'

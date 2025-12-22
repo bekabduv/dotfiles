@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# File/directory search utility using kdialog GUI, opens selected files in Zed editor
 
 set -e
 

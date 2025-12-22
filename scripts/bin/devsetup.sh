@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Automated Fedora development environment setup with packages, tools, and configurations
 
 # TODO: After this script, make sure to stow configs on demand
 
