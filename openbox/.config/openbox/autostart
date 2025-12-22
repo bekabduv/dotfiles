@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+xinput set-prop "9" "libinput Tapping Enabled" 1
+
+# Kill any existing xscreensaver processes
+xscreensaver-command -exit &
+# Start the xscreensaver daemon (do not display a splash screen)
+xscreensaver -no-splash &

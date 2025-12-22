@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+if ! ping -c 1 8.8.8.8 &>/dev/null; then
+  echo "_____YOU ARE OFFLINE_____"
+  exit 1
+fi
+
+# kdialog --yesno "Sync VAULT and push dotfiles?"
+# [[ $? -ne 0 ]] && exit 0
+
+# Uncomment this line to use rclone
+# rclone copy ~/VAULT gdrive:VAULT --exclude-from ~/VAULT/ignore.txt --progress -v
+
+cd ~/dotfiles
+git add .
+git commit -m "Auto-sync"
+git push
+
+cd ~/VAULT
+git add .
+git commit -m "Auto-sync"
+git push
+
+# stars="**********"
+# for x in {10..0}; do
+#   echo -ne "\rShutting down in $x second(s) ${stars:0:$x}"
+#   sleep 1
+# done
+
+cowsay_output_len=0
+for x in {10..0}; do
+  cowsay_output=$(cowsay "Shutting down in $x secons(s)") # Generate this first before clearing screen to prevent waiting that causes flicker
+  tput cuu $cowsay_output_len                             # move the cursor x lines up
+  tput ed                                                 # clear to the end of screen
+  cowsay_output_len=$(echo "$cowsay_output" | wc -l)
+  echo "$cowsay_output"
+  sleep 1
+done
+
+echo "Shutting down now"
+shutdown now
