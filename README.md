@@ -13,7 +13,7 @@ Prerequisites:
 
 Install steps (one-time):
 1. Clone the repo:
-   - `git clone <your-ssh-url>/dotfiles.git ~/dotfiles`
+   - `git clone git@github.com:bekabduv/dotfiles.git ~/dotfiles`
 2. Apply the dotfiles using Stow (adjust groups to your needs):
    - `cd ~/dotfiles`
    - `stow kitty alacritty nvim zsh openbox qterminal`  # add other groups as needed
