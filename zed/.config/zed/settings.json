@@ -7,13 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini"
+    },
+    "model_parameters": []
+  },
   "cursor_blink": false,
   "terminal": {
     "font_family": "Hack Nerd Font",
   },
   "relative_line_numbers": "enabled",
   "show_edit_predictions": false,
-  "disable_ai": true,
+  "disable_ai": false,
   "gutter": {
     "line_numbers": false,
     "min_line_number_digits": 2,
