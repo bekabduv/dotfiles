@@ -86,8 +86,10 @@ if confirm "Setup ssh-keys, dotfiles and VAULT?"; then
   cat "$HOME/.ssh/id_ed25519.pub"
   read -rp "Add this to GitHub SSH keys.\nPress ENTER to continue: "
 
-  # Clone the private dotfiles repo from GitHub
-  git clone "git@github.com:${myname}/dotfiles.git"
+  # Clone the public dotfiles repo from GitHub
+  git clone "https://github.com/${myname}/dotfiles.git"
+
+  # Clone the private VAULT repo
   git clone "git@github.com:${myname}/VAULT.git"
 fi
 
@@ -143,6 +145,10 @@ fi
 # Install Bun
 confirm "Install Bun?" && curl -fsSL https://bun.sh/install | bash
 
+if confirm "Enable nuclear option"; then
+  echo 'kernel.sysrq = 1' | sudo tee /etc/sysctl.d/99-sysrq.conf
+fi
+
 # Install Oh My Zsh, autosuggestions, syntax-highlighting and starship
 # Using curl
 if confirm "Install ohmyzsh, autosuggestions, syntax-highlighting and starship?"; then
@@ -158,14 +164,20 @@ if confirm "Install ohmyzsh, autosuggestions, syntax-highlighting and starship?"
   # Inside .zshrc, change this line "plugins=(git)" to this "plugins=(git zsh-autosuggestions)"
   sed -i 's/^plugins=.*$/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' "$HOME/.zshrc"
 
-  # Install starship
+  # Install starship using curl or wget (you can also install package version from distro repo)
   curl -sS https://starship.rs/install.sh | sh
+
+  # or install using distro repo
+  # sudo dnf install starship
+
   echo 'eval "$(starship init zsh)"' >>"$HOME/.zshrc"
 
   # Let starship handle themes instead of ohmyzsh
   sed -i 's/^ZSH_THEME=.*$/ZSH_THEME=""/' "$HOME/.zshrc"
-  # Catppuccin preset
-  starship preset catppuccin-powerline -o ~/.config/starship.toml
+
+  # Use catppuccin preset if you don't have your own preset
+  # starship preset catppuccin-powerline -o ~/.config/starship.toml
+  # Else stow the one in dotfiles/starship
 
   # Stow starship
   "$(cd "$HOME/dotfiles && stow starship")"
@@ -179,11 +191,8 @@ if confirm "Install ohmyzsh, autosuggestions, syntax-highlighting and starship?"
 
   # Change default shell
   if confirm "Change default shell to zsh?"; then
-    sudo chsh -s "$(which zsh)" "$USER"
+    sudo chsh -s zsh "$USER" # you can run this command without sudo
+    # or use sudo chsh -s "$(which zsh)" "$USER" if the one above fails
     echo "LOGOUT AND LOG BACK IN TO APPLY THE CHANGES"
   fi
-fi
-
-if confirm "Enable nuclear option"; then
-  echo 'kernel.sysrq = 1' | sudo tee /etc/sysctl.d/99-sysrq.conf
 fi
