@@ -73,11 +73,13 @@ PACKAGES=(
 # mosh
 # disks  # package for formatting thumbdrives
 
-# List of packages to install from copr
-# sudo dnf copr enable lihaohong/yazi
-# sudo dnf install yazi
-# sudo dnf copr enable alternateved/keyd
-# sudo dnf install keyd
+# List of packages to install from copr -y
+# sudo dnf copr enable lihaohong/yazi -y
+# sudo dnf install yazi -y
+# sudo dnf copr enable alternateved/keyd -y
+# sudo dnf install keyd -y
+# sudo dnf copr enable atim/lazydocker -y
+# sudo dnf install lazydocker -y
 
 # Setup github ssh authentication and setup dotfiles and VAULT
 if confirm "Setup ssh-keys, dotfiles and VAULT?"; then
@@ -162,7 +164,7 @@ if confirm "Install ohmyzsh, autosuggestions, syntax-highlighting and starship?"
   git clone https://github.com/zsh-users/zsh-syntax-highlighting "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
   # Inside .zshrc, change this line "plugins=(git)" to this "plugins=(git zsh-autosuggestions)"
-  sed -i 's/^plugins=.*$/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' "$HOME/.zshrc"
+  sed -i 's/^plugins=.*$/plugins=(git docker zsh-autosuggestions zsh-syntax-highlighting)/' "$HOME/.zshrc"
 
   # Install starship using curl or wget (you can also install package version from distro repo)
   curl -sS https://starship.rs/install.sh | sh
