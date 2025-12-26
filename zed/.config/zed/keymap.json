@@ -9,11 +9,12 @@
   {
     "context": "Workspace",
     "bindings": {
-      "alt-b": "workspace::ToggleLeftDock",
       "alt-e": "workspace::ToggleLeftDock",
+      "alt-b": "workspace::ToggleLeftDock",
       "alt-h": "pane::ActivatePreviousItem",
       "alt-l": "pane::ActivateNextItem",
       "alt-/": "workspace::ToggleBottomDock",
+      "ctrl-/": "workspace::ToggleBottomDock",
     },
   },
   {
@@ -26,16 +27,19 @@
     "context": "vim_mode == normal",
     "bindings": {
       "alt-e": "workspace::ToggleLeftDock",
-      "alt-w": "pane::CloseActiveItem",
+      "space e": "workspace::ToggleLeftDock",
+      "space b d": "pane::CloseActiveItem",
       "alt-b": "workspace::ToggleLeftDock",
-      // "alt-h": "pane::ActivatePreviousItem",
-      // "alt-l": "pane::ActivateNextItem",
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
       "alt-/": "workspace::ToggleBottomDock",
-      "alt-s": "pane::DeploySearch",
-      "alt-a": "editor::ToggleCodeActions",
-      "alt-r": "editor::Rename",
-      "alt-f": "editor::Format",
-      "alt-d": "editor::GoToDiagnostic",
+      "ctrl-/": "workspace::ToggleBottomDock",
+      "space s g": "pane::DeploySearch",
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space c f": "editor::Format",
+      "space c d": "editor::GoToDiagnostic",
+      "space space": "file_finder::Toggle",
       "alt-i": "editor::CopyFileName",
       "alt-p": ["workspace::SendKeystrokes", "alt-i p"],
     },
@@ -46,12 +50,15 @@
       "ctrl-s": ["workspace::SendKeystrokes", "escape : w enter"],
       "alt-p": ["workspace::SendKeystrokes", "alt-i ctrl-v"],
       "alt-i": "editor::CopyFileName",
+      "ctrl-/": "workspace::ToggleBottomDock",
     },
   },
   {
     "context": "ProjectPanel",
     "bindings": {
       "alt-e": "workspace::ToggleLeftDock",
+      "space e": "workspace::ToggleLeftDock",
+      // "a": "workspace::NewFile",
     },
   },
   {
@@ -59,6 +66,8 @@
     "context": "Terminal",
     "bindings": {
       "alt-/": "workspace::ToggleBottomDock",
+      "ctrl-/": "workspace::ToggleBottomDock",
+      "space e": "workspace::ToggleLeftDock",
     },
   },
   {
