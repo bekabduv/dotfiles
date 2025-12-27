@@ -7,7 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "auto_update_extensions": {
+    "react-typescript-snippets": false
+  },
+  "project_panel": {
+    "auto_fold_dirs": false
+  },
   "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini"
+    },
     "inline_assistant_model": {
       "provider": "copilot_chat",
       "model": "gpt-5-mini"

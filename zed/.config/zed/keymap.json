@@ -67,7 +67,6 @@
     "bindings": {
       "alt-/": "workspace::ToggleBottomDock",
       "ctrl-/": "workspace::ToggleBottomDock",
-      "space e": "workspace::ToggleLeftDock",
     },
   },
   {
