@@ -12,6 +12,9 @@ fi
 # Uncomment this line to use rclone
 # rclone copy ~/VAULT gdrive:VAULT --exclude-from ~/VAULT/ignore.txt --progress -v
 
+# Backup lxqt config
+cp -r "$HOME"/.config/lxqt/* "$HOME"/VAULT/lxqt.bak
+
 cd ~/dotfiles
 git add .
 git commit -m "Auto-sync"
