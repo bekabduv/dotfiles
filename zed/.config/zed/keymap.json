@@ -39,6 +39,7 @@
       "space c r": "editor::Rename",
       "space c f": "editor::Format",
       "space c d": "editor::GoToDiagnostic",
+      "alt-d": "editor::GoToDiagnostic",
       "space space": "file_finder::Toggle",
       "alt-i": "editor::CopyFileName",
       "alt-p": ["workspace::SendKeystrokes", "alt-i p"],
