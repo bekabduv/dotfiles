@@ -1,0 +1,35 @@
+{
+  "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
+  "name": "Gruvbox Light Soft (7:1 High Contrast)",
+  "author": "b-3po / programmatically adjusted",
+  "themes": [
+    {
+      "name": "Gruvbox Light Soft (7:1 High Contrast)",
+      "appearance": "light",
+      "style": {
+        "editor.background": "#f2e5bc",
+        "editor.foreground": "#282828",
+        "syntax": {
+          "attribute": { "color": "#085160" },
+          "boolean": { "color": "#73325b" },
+          "comment": { "color": "#504841" },
+          "comment.doc": { "color": "#4f4843" },
+          "constant": { "color": "#65420a" },
+          "constructor": { "color": "#990005" },
+          "embedded": { "color": "#2b513a" },
+          "emphasis": { "color": "#085160" },
+          "enum": { "color": "#852c01" },
+          "function": { "color": "#055160" },
+          "keyword": { "color": "#990005" },
+          "number": { "color": "#73325b" },
+          "operator": { "color": "#2b513a" },
+          "property": { "color": "#055160" },
+          "punctuation": { "color": "#3c3836" },
+          "string": { "color": "#4e4b09" },
+          "type": { "color": "#65420b" },
+          "variable": { "color": "#3c3836" }
+        }
+      }
+    }
+  ]
+}

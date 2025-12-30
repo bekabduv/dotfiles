@@ -191,6 +191,10 @@ if confirm "Install ohmyzsh, autosuggestions, syntax-highlighting and starship?"
   echo "export EDITOR='nvim'" >>"$HOME/.zshrc"
   echo "export VISUAL='nvim'" >>"$HOME/.zshrc"
 
+  if confirm "Setup light/dark nvim versions?"; then
+
+  fi
+
   # Change default shell
   if confirm "Change default shell to zsh?"; then
     sudo chsh -s zsh "$USER" # you can run this command without sudo
