@@ -18,6 +18,7 @@
     "auto_fold_dirs": false,
   },
   "agent": {
+    "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-5-mini",
