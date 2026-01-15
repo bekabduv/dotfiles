@@ -11,17 +11,18 @@
   "colorize_brackets": false,
   "indent_guides": {
     "coloring": "indent_aware",
-    "background_coloring": "disabled"
+    "background_coloring": "disabled",
   },
   "multi_cursor_modifier": "cmd_or_ctrl",
   "project_panel": {
     "auto_fold_dirs": false,
   },
   "agent": {
+    "always_allow_tool_actions": true,
     "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-5-mini",
+      "model": "claude-haiku-4.5",
     },
     "inline_assistant_model": {
       "provider": "copilot_chat",
@@ -75,4 +76,7 @@
     "!typescript-language-server",
     "...",
   ],
+  "file_types": {
+    "Plain Text": ["asm", "s"],
+  },
 }

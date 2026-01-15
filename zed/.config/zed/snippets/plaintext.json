@@ -1,0 +1,38 @@
+{
+  "NASM Boilerplate": {
+    "prefix": "asmstart",
+    "body": [
+      "section .data",
+      "\t",
+      "",
+      "section .bss",
+      "\t",
+      "",
+      "section .text",
+      "\tglobal _start",
+      "",
+      "_start:",
+      "\t; ------------------------------------------------------------------------------------",
+      "\t; SYSCALL REFERENCE (x86-64 Linux):",
+      "\t; 1) rax. 2) rdi. 3) rsi 4) rdx. 5) rcx. 6) r8.",
+      "\t; ------------------------------------------------------------------------------------",
+      "",
+      "",
+      "\tmov rax, 60",
+      "\txor rdi, rdi",
+      "\tsyscall"
+    ],
+    "description": "NASM x64 boilerplate"
+  },
+  "syscall": {
+    "prefix": "sscll",
+    "body": [
+      "\tmov rax,${1: 1}",
+      "\tmov rdi,${2: 1}",
+      "\tmov rsi,${3: 1}",
+      "\tmov rdx,${4: 1}",
+      "\tsyscall"
+    ],
+    "description": "Boilerplate for syscalls"
+  }
+}
