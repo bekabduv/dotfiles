@@ -26,7 +26,7 @@ git commit -m "Auto-sync"
 git push
 
 cowsay_output_len=0
-for x in {10..0}; do
+for x in {3..0}; do
   cowsay_output=$(cowsay "Shutting down in $x secons(s)") # Generate this first before clearing screen to prevent waiting that causes flicker
   tput cuu $cowsay_output_len                             # move the cursor x lines up
   tput ed                                                 # clear to the end of screen
