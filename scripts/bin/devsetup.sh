@@ -64,6 +64,7 @@ PACKAGES=(
   man
   bat
   cowsay # This is needed by "$HOME/VAULT/dailytasks.sh"
+  vlc
 )
 
 # Aditionally
