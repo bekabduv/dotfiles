@@ -41,7 +41,7 @@
   },
   "relative_line_numbers": "enabled",
   "show_edit_predictions": false,
-  "disable_ai": false,
+  "disable_ai": true,
   "gutter": {
     "line_numbers": false,
     "min_line_number_digits": 2,
