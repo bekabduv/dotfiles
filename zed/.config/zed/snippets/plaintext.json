@@ -34,5 +34,146 @@
       "\tsyscall"
     ],
     "description": "Boilerplate for syscalls"
+  },
+  "getInput": {
+    "prefix": "getInput",
+    "body": [
+      "getInput:",
+      "\tmov rsi, rdi",
+      "\tmov rdx, 100",
+      "\txor rax, rax",
+      "\txor rdi, rdi",
+      "\tsyscall",
+      "\tret"
+    ],
+    "description": "Boilerplate for getInput. Usage: lea rdi, [msg] | lea rsi, [buffer] | call getInput | mov byte [buffer + rax], 0"
+  },
+
+  "printNewLine": {
+    "prefix": "printNewLine",
+    "body": [
+      "printNewLine:",
+      "\tmov rax, 1",
+      "\tmov rdi, 1",
+      "\tmov rsi, newLine",
+      "\tmov rdx, 1",
+      "\tsyscall",
+      "\tret"
+    ],
+    "description": "Boilerplate for printNewLine"
+  },
+
+  "print": {
+    "prefix": "print",
+    "body": [
+      "print:",
+      "\tmov rsi, rdi",
+      "\tcall getLen",
+      "\tmov rdx, rax",
+      "\tmov rax, 1",
+      "\tmov rdi, 1",
+      "\tsyscall",
+      "\tmov rax, rdx ; print functions return the number of chars printed",
+      "\tret"
+    ],
+    "description": "Boilerplate for print"
+  },
+
+  "getLen": {
+    "prefix": "getLen",
+    "body": [
+      "getLen:",
+      "\txor rcx, rcx",
+      "getLenLoop:",
+      "\tmovzx rax, byte [rdi]",
+      "\ttest rax, rax",
+      "\tjz getLenDone",
+      "\tinc rcx",
+      "\tinc rdi",
+      "\tjmp getLenLoop",
+      "getLenDone:",
+      "\tmov rax, rcx",
+      "\tret"
+    ],
+    "description": "Boilerplate for getLen"
+  },
+
+  "strToNum": {
+    "prefix": "strToNum",
+    "body": [
+      "strToNum:",
+      "\txor rax, rax",
+      "\tmov rbx, 10",
+      "\txor rcx, rcx",
+      "strToNumLoop:",
+      "\tmovzx rcx, byte [rdi]",
+      "\ttest rcx, rcx",
+      "\tjz strToNumDone",
+      "\tsub rcx, '0'",
+      "\tcmp rcx, 9",
+      "\tja strToNumDone",
+      "\timul rax, rbx",
+      "\tadd rax, rcx",
+      "\tinc rdi",
+      "\tjmp strToNumLoop",
+      "strToNumDone:",
+      "ret"
+    ],
+    "description": "Boilerplate for strToNum"
+  },
+
+  "numToStr": {
+    "prefix": "numToStr",
+    "body": [
+      "numToStr:",
+      "\tmov rbx, 10",
+      "\tmov rax, rdi",
+      "\txor rcx, rcx",
+      "numToStrLoop:",
+      "\txor rdx, rdx",
+      "\tdiv rbx",
+      "\tadd rdx, '0'",
+      "\tpush rdx",
+      "\tinc rcx",
+      "\ttest rax, rax",
+      "\tjne numToStrLoop",
+      "\txor r8, r8",
+      "popIt:",
+      "\tpop rax",
+      "\tmov [numToStrBuff + r8], al",
+      "\tinc r8",
+      "\tcmp r8, rcx",
+      "\tjne popIt",
+      "\tmov byte [numToStrBuff + rcx], 0",
+      "\tret"
+    ],
+    "description": "Boilerplate for "
+  },
+  "getInputForArrayLoop": {
+    "prefix": "getInputForArrayLoop",
+    "body": [
+      "getInputForArray:",
+      "\txor rax, rax",
+      "\txor r12, r12",
+      "\txor r13, r13",
+      "getInputForArrayLoop:",
+      "\tlea rdi, [msg]",
+      "\tlea rsi, [buffer + r12]",
+      "\tmov [array + r13 * 8], rsi",
+      "\tinc r13",
+      "\tcall getInput",
+      "\tdec rax",
+      "\tadd r12, rax",
+      "\tmov byte [buffer + r12], 0x0",
+      "\tinc r12",
+      "\tcmp r13, 2",
+      "\tjne getInputForArrayLoop"
+    ],
+    "description": "Boilerplate for getInputForArray"
+  },
+  "": {
+    "prefix": "",
+    "body": ["", "", "", "", ""],
+    "description": "Boilerplate for "
   }
 }
