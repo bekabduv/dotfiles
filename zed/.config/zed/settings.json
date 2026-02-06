@@ -39,7 +39,7 @@
     "font_weight": 600.0,
     "font_family": "Hack Nerd Font",
   },
-  "relative_line_numbers": "enabled",
+  "relative_line_numbers": "disabled",
   "show_edit_predictions": false,
   "disable_ai": true,
   "gutter": {

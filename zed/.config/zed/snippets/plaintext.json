@@ -18,6 +18,8 @@
       "\t; ------------------------------------------------------------------------------------",
       "",
       "",
+      "",
+      "exit:",
       "\tmov rax, 60",
       "\txor rdi, rdi",
       "\tsyscall"
@@ -38,13 +40,17 @@
   "getInput": {
     "prefix": "getInput",
     "body": [
+      "\t; -------------------------------------------------------------------------",
+      "\t; getInput takes two args: rdi is the buffer the write to and rsi is the size to read",
       "getInput:",
+      "\tmov rdx, rsi",
       "\tmov rsi, rdi",
-      "\tmov rdx, 100",
       "\txor rax, rax",
       "\txor rdi, rdi",
       "\tsyscall",
-      "\tret"
+      "\tmov byte [rsi + rax - 1], 0",
+      "\tret",
+      "\t; -------------------------------------------------------------------------"
     ],
     "description": "Boilerplate for getInput. Usage: lea rdi, [msg] | lea rsi, [buffer] | call getInput | mov byte [buffer + rax], 0"
   },
@@ -52,13 +58,15 @@
   "printNewLine": {
     "prefix": "printNewLine",
     "body": [
+      "\t; -------------------------------------------------------------------------",
       "printNewLine:",
       "\tmov rax, 1",
       "\tmov rdi, 1",
       "\tmov rsi, newLine",
       "\tmov rdx, 1",
       "\tsyscall",
-      "\tret"
+      "\tret",
+      "\t; -------------------------------------------------------------------------"
     ],
     "description": "Boilerplate for printNewLine"
   },
@@ -66,6 +74,7 @@
   "print": {
     "prefix": "print",
     "body": [
+      "\t; -------------------------------------------------------------------------",
       "print:",
       "\tmov rsi, rdi",
       "\tcall getLen",
@@ -74,14 +83,7 @@
       "\tmov rdi, 1",
       "\tsyscall",
       "\tmov rax, rdx ; print functions return the number of chars printed",
-      "\tret"
-    ],
-    "description": "Boilerplate for print"
-  },
-
-  "getLen": {
-    "prefix": "getLen",
-    "body": [
+      "\tret",
       "getLen:",
       "\txor rcx, rcx",
       "getLenLoop:",
@@ -93,14 +95,59 @@
       "\tjmp getLenLoop",
       "getLenDone:",
       "\tmov rax, rcx",
-      "\tret"
+      "\tret",
+      "\t; -------------------------------------------------------------------------"
+    ],
+    "description": "Boilerplate for print"
+  },
+
+  "getLen": {
+    "prefix": "getLen",
+    "body": [
+      "\t; -------------------------------------------------------------------------",
+      "getLen:",
+      "\txor rcx, rcx",
+      "getLenLoop:",
+      "\tmovzx rax, byte [rdi]",
+      "\ttest rax, rax",
+      "\tjz getLenDone",
+      "\tinc rcx",
+      "\tinc rdi",
+      "\tjmp getLenLoop",
+      "getLenDone:",
+      "\tmov rax, rcx",
+      "\tret",
+      "\t; -------------------------------------------------------------------------"
     ],
     "description": "Boilerplate for getLen"
+  },
+
+  "println": {
+    "prefix": "println",
+    "body": [
+      "\t; -------------------------------------------------------------------------",
+      "println:",
+      "\tcall print",
+      "\tpush rax",
+      "\tcall printNewLine",
+      "\tpop rax",
+      "\tret",
+      "printNewLine:",
+      "\tmov rax, 1",
+      "\tmov rdi, 1",
+      "\tmov rsi, newLine",
+      "\tmov rdx, 1",
+      "\tsyscall",
+      "\tret",
+      "\t; -------------------------------------------------------------------------"
+    ],
+    "description": "Boilerplate for println"
   },
 
   "strToNum": {
     "prefix": "strToNum",
     "body": [
+      "\t; -------------------------------------------------------------------------",
       "strToNum:",
       "\txor rax, rax",
       "\tmov rbx, 10",
@@ -117,7 +164,8 @@
       "\tinc rdi",
       "\tjmp strToNumLoop",
       "strToNumDone:",
-      "ret"
+      "ret",
+      "\t; -------------------------------------------------------------------------"
     ],
     "description": "Boilerplate for strToNum"
   },
@@ -125,6 +173,7 @@
   "numToStr": {
     "prefix": "numToStr",
     "body": [
+      "\t; -------------------------------------------------------------------------",
       "numToStr:",
       "\tmov rbx, 10",
       "\tmov rax, rdi",
@@ -145,13 +194,15 @@
       "\tcmp r8, rcx",
       "\tjne popIt",
       "\tmov byte [numToStrBuff + rcx], 0",
-      "\tret"
+      "\tret",
+      "\t; -------------------------------------------------------------------------"
     ],
     "description": "Boilerplate for "
   },
   "getInputForArrayLoop": {
     "prefix": "getInputForArrayLoop",
     "body": [
+      "\t; -------------------------------------------------------------------------",
       "getInputForArray:",
       "\txor rax, rax",
       "\txor r12, r12",
@@ -164,16 +215,109 @@
       "\tcall getInput",
       "\tdec rax",
       "\tadd r12, rax",
-      "\tmov byte [buffer + r12], 0x0",
+      "\tmov byte [buffer + r12], 0",
       "\tinc r12",
       "\tcmp r13, 2",
-      "\tjne getInputForArrayLoop"
+      "\tjne getInputForArrayLoop",
+      "\t; -------------------------------------------------------------------------"
     ],
     "description": "Boilerplate for getInputForArray"
   },
+  "printArray": {
+    "prefix": "printArray",
+    "body": [
+      "\t; -------------------------------------------------------------------------",
+      "printArray:",
+      "\tmov rbx, rdi",
+      "printArrayLoop:",
+      "\tmov rdi, [rbx]",
+      "\ttest rdi, rdi",
+      "\tje printArrayDone",
+      "\tcall print",
+      "\tcall printNewLine",
+      "\tadd rbx, 8",
+      "\tjmp printArrayLoop",
+      "printArrayDone:",
+      "\tret",
+      "\t; -------------------------------------------------------------------------"
+    ],
+    "description": "Boilerplate for printArray"
+  },
+  "splitBySpace": {
+    "prefix": "splitBySpace",
+    "body": [
+      "\t; -------------------------------------------------------------------------",
+      "splitBySpace:",
+      "\t; in rdi is the string to split",
+      "\t; in rsi is the variable to store the result",
+      "\txor rcx, rcx",
+      "splitBySpaceLoop:",
+      "\tcmp byte [rdi], 0",
+      "\tje splitBySpaceDone",
+      "\tcall skipSpaces",
+      "\tcmp byte [rdi], 0",
+      "\tje splitBySpaceDone",
+      "\tmov [rsi + rcx * 8], rdi",
+      "\tinc rcx",
+      "\tcall skipToEnd",
+      "\tmov byte [rdi], 0",
+      "\tinc rdi",
+      "\tjmp splitBySpaceLoop",
+      "splitBySpaceDone:",
+      "\tlea rax, [nullTerm]",
+      "\tmov qword [rsi + rcx * 8], rax",
+      "\tret",
+      "skipSpaces:",
+      "\tcmp byte [rdi], ' '",
+      "\tjne skipSpacesDone",
+      "\tinc rdi",
+      "\tjmp skipSpaces",
+      "skipSpacesDone:",
+      "\tret",
+      "skipToEnd:",
+      "\tcmp byte [rdi], 0",
+      "\tje skipToEndDone",
+      "\tcmp byte [rdi], ' '",
+      "\tje skipToEndDone",
+      "\tinc rdi",
+      "\tjmp skipToEnd",
+      "skipToEndDone:",
+      "\tret",
+      "\t; -------------------------------------------------------------------------"
+    ],
+    "description": "Boilerplate for splitBySpace"
+  },
+  "strcmp": {
+    "prefix": "strcmp",
+    "body": [
+      "\t; -------------------------------------------------------------------------",
+      "strcmp:",
+      "strcmpLoop:",
+      "\tmovzx rax, byte [rdi]",
+      "\tmovzx rbx, byte [rsi]",
+      "\tcmp rax, rbx",
+      "\tjne strcmpDone",
+      "\ttest rax, rax",
+      "\tje strcmpDone",
+      "\ttest rbx, rbx",
+      "\tje strcmpDone",
+      "\tinc rdi",
+      "\tinc rsi",
+      "\tjmp strcmpLoop",
+      "strcmpDone:",
+      "\tsub rax, rbx",
+      "\tret",
+      "\t; -------------------------------------------------------------------------"
+    ],
+    "description": "Boilerplate for strcmp"
+  },
   "": {
     "prefix": "",
-    "body": ["", "", "", "", ""],
+    "body": [
+      "\t; -------------------------------------------------------------------------",
+      "",
+      "\t; -------------------------------------------------------------------------"
+    ],
     "description": "Boilerplate for "
   }
 }
