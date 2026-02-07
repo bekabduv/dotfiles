@@ -77,12 +77,16 @@
       "\t; -------------------------------------------------------------------------",
       "print:",
       "\tmov rsi, rdi",
+      ";\tmovzx rax, byte [rdi]",
+      ";\ttest rax, rax",
+      ";\tje printDone",
       "\tcall getLen",
       "\tmov rdx, rax",
       "\tmov rax, 1",
       "\tmov rdi, 1",
       "\tsyscall",
       "\tmov rax, rdx ; print functions return the number of chars printed",
+      "printDone",
       "\tret",
       "getLen:",
       "\txor rcx, rcx",
@@ -228,20 +232,51 @@
     "body": [
       "\t; -------------------------------------------------------------------------",
       "printArray:",
+      "push rbx",
       "\tmov rbx, rdi",
       "printArrayLoop:",
       "\tmov rdi, [rbx]",
-      "\ttest rdi, rdi",
+      "\tcmp byte [rdi], 0",
       "\tje printArrayDone",
       "\tcall print",
-      "\tcall printNewLine",
+      "\tcall printSpace",
       "\tadd rbx, 8",
       "\tjmp printArrayLoop",
       "printArrayDone:",
+      "\tpop rbx",
       "\tret",
+      "printSpace:",
+      "\tmov rax, 1",
+      "\tmov rdi, 1",
+      "\tlea rsi, [space]",
+      "\tmov rdx, 1",
+      "\tsyscall",
+      "\tret",
+
       "\t; -------------------------------------------------------------------------"
     ],
     "description": "Boilerplate for printArray"
+  },
+  "printArrayLn": {
+    "prefix": "printArrayLn",
+    "body": [
+      "\t; -------------------------------------------------------------------------",
+      "printArrayLn:",
+      "\tpush rbx",
+      "\tmov rbx, rdi",
+      "printArrayLnLoop:",
+      "\tmov rdi, [rbx]",
+      "\tcmp byte [rdi], 0",
+      "\tje printArrayLnDone",
+      "\tcall println",
+      "\tadd rbx, 8",
+      "\tjmp printArrayLnLoop",
+      "printArrayLnDone:",
+      "\tpop rbx",
+      "\tret",
+      "\t; -------------------------------------------------------------------------"
+    ],
+    "description": "Boilerplate for printArrayLn"
   },
   "splitBySpace": {
     "prefix": "splitBySpace",
@@ -260,6 +295,8 @@
       "\tmov [rsi + rcx * 8], rdi",
       "\tinc rcx",
       "\tcall skipToEnd",
+      "\tcmp byte [rdi], 0",
+      "\tje splitBySpaceDone",
       "\tmov byte [rdi], 0",
       "\tinc rdi",
       "\tjmp splitBySpaceLoop",
@@ -292,6 +329,7 @@
     "body": [
       "\t; -------------------------------------------------------------------------",
       "strcmp:",
+      "\tpush rbx",
       "strcmpLoop:",
       "\tmovzx rax, byte [rdi]",
       "\tmovzx rbx, byte [rsi]",
@@ -306,10 +344,28 @@
       "\tjmp strcmpLoop",
       "strcmpDone:",
       "\tsub rax, rbx",
+      "\tpop rbx",
       "\tret",
       "\t; -------------------------------------------------------------------------"
     ],
     "description": "Boilerplate for strcmp"
+  },
+
+  "echo": {
+    "prefix": "echo",
+    "body": [
+      "\t; -------------------------------------------------------------------------",
+      "echo:",
+      "\tlea rdi, [tokens + 8]",
+      "\tmov rax, [rdi]",
+      "\ttest rax, rax",
+      "\tje _start",
+      "\tcall printArray",
+      "\tcall printNewLine",
+      "\tjmp _start",
+      "\t; -------------------------------------------------------------------------"
+    ],
+    "description": "Boilerplate for echo"
   },
   "": {
     "prefix": "",
