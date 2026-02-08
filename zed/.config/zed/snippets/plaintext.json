@@ -41,7 +41,7 @@
     "prefix": "getInput",
     "body": [
       "\t; -------------------------------------------------------------------------",
-      "\t; getInput takes two args: rdi is the buffer the write to and rsi is the size to read",
+      "\t; getInput takes two args: rdi is the buffer the write to and rsi is the max size to read",
       "getInput:",
       "\tmov rdx, rsi",
       "\tmov rsi, rdi",
@@ -86,7 +86,7 @@
       "\tmov rdi, 1",
       "\tsyscall",
       "\tmov rax, rdx ; print functions return the number of chars printed",
-      "printDone",
+      "printDone:",
       "\tret",
       "getLen:",
       "\txor rcx, rcx",
