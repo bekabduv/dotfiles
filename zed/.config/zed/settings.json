@@ -66,9 +66,9 @@
   "buffer_font_size": 15.0,
   "buffer_font_features": { "calt": false, "liga": false },
   "theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Gruvbox Light",
-    "dark": "Ayu Dark",
+    "dark": "Gruvbox Dark Soft",
   },
   "diagnostics": {
     "inline": {

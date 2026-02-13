@@ -28,6 +28,7 @@
     ],
     "description": "NASM x64 boilerplate"
   },
+
   "syscall": {
     "prefix": "sscll",
     "body": [
@@ -39,6 +40,7 @@
     ],
     "description": "Boilerplate for syscalls"
   },
+
   "getInput": {
     "prefix": "getInput",
     "body": [
@@ -52,12 +54,14 @@
       "\txor rdi, rdi      ; Arg1: file descriptor 0 is STDIN",
       "\tsyscall",
       "\t; Replace the newline character with a null terminator",
-      "\tmov byte [rsi + rax - 1], 0",
+      "\tdec rax",
+      "\tmov byte [rsi + rax], 0",
       "\tret",
       "\t; -------------------------------------------------------------------------"
     ],
     "description": "Boilerplate for getInput. Usage: lea rdi, [msg] | lea rsi, [buffer] | call getInput"
   },
+
   "printNewLine": {
     "prefix": "printNewLine",
     "body": [
@@ -73,6 +77,7 @@
     ],
     "description": "Boilerplate for printNewLine"
   },
+
   "print": {
     "prefix": "print",
     "body": [
@@ -106,6 +111,7 @@
     ],
     "description": "Boilerplate for print"
   },
+
   "getLen": {
     "prefix": "getLen",
     "body": [
@@ -128,11 +134,12 @@
     ],
     "description": "Boilerplate for getLen"
   },
-  "println": {
-    "prefix": "println",
+
+  "printLn": {
+    "prefix": "printLn",
     "body": [
       "\t; -------------------------------------------------------------------------",
-      "println:",
+      "printLn:",
       "\tcall print        ; Print the string",
       "\tpush rax          ; Save rax (return value of print) if needed",
       "\tcall printNewLine ; Print the \\n",
@@ -147,8 +154,9 @@
       "\tret",
       "\t; -------------------------------------------------------------------------"
     ],
-    "description": "Boilerplate for println"
+    "description": "Boilerplate for printLn"
   },
+
   "strToNum": {
     "prefix": "strToNum",
     "body": [
@@ -176,14 +184,15 @@
     ],
     "description": "Boilerplate for strToNum"
   },
+
   "numToStr": {
     "prefix": "numToStr",
     "body": [
       "\t; -------------------------------------------------------------------------",
       "\t; numToStr (itoa): Converts integer to string",
-      "\t; Args: rdi = integer. Writes to 'numToStrBuff'",
-      "\t; WARN: Requires 'numToStrBuff' in .bss",
+      "\t; Args: rdi = integer. rsi = pointer to the buffer to write the result",
       "numToStr:",
+      "\tpush rbx",
       "\tmov rbx, 10       ; Divisor",
       "\tmov rax, rdi      ; Number to convert",
       "\txor rcx, rcx      ; Digit counter",
@@ -198,16 +207,18 @@
       "\txor r8, r8        ; Buffer index",
       "popIt:",
       "\tpop rax           ; Pop digit from stack",
-      "\tmov [numToStrBuff + r8], al ; Store in buffer",
+      "\tmov [rsi + r8], al ; Store in buffer",
       "\tinc r8",
       "\tcmp r8, rcx       ; Check if we popped all digits",
       "\tjne popIt",
-      "\tmov byte [numToStrBuff + rcx], 0 ; Null terminate",
+      "\tmov byte [rsi + rcx], 0 ; Null terminate",
+      "\tpop rbx",
       "\tret",
       "\t; -------------------------------------------------------------------------"
     ],
     "description": "Boilerplate for numToStr"
   },
+
   "getInputForArrayLoop": {
     "prefix": "getInputForArrayLoop",
     "body": [
@@ -242,6 +253,7 @@
     ],
     "description": "Boilerplate for getInputForArray"
   },
+
   "printArray": {
     "prefix": "printArray",
     "body": [
@@ -273,6 +285,7 @@
     ],
     "description": "Boilerplate for printArray"
   },
+
   "printArrayLn": {
     "prefix": "printArrayLn",
     "body": [
@@ -285,7 +298,7 @@
       "\tmov rdi, [rbx]",
       "\tcmp byte [rdi], 0",
       "\tje printArrayLnDone",
-      "\tcall println      ; Uses println instead of print",
+      "\tcall printLn      ; Uses printLn instead of print",
       "\tadd rbx, 8",
       "\tjmp printArrayLnLoop",
       "printArrayLnDone:",
@@ -295,6 +308,7 @@
     ],
     "description": "Boilerplate for printArrayLn"
   },
+
   "splitBySpace": {
     "prefix": "splitBySpace",
     "body": [
@@ -343,6 +357,7 @@
     ],
     "description": "Boilerplate for splitBySpace"
   },
+
   "strcmp": {
     "prefix": "strcmp",
     "body": [
@@ -371,6 +386,7 @@
     ],
     "description": "Boilerplate for strcmp"
   },
+
   "echo": {
     "prefix": "echo",
     "body": [
@@ -388,13 +404,45 @@
     ],
     "description": "Boilerplate for echo"
   },
-  "sectionDivider": {
-    "prefix": "div",
+
+  "getMemory": {
+    "prefix": "getMemory",
+    "body": [
+      "\t; -------------------------------------------------------------------------",
+      "getMemory:",
+      "\tmov rsi, rdi",
+      "\tmov rax, 9",
+      "\txor rdi, rdi",
+      "\tmov rdx, 3",
+      "\tmov r10, 34",
+      "\tmov r8, -1",
+      "\txor r9, r9",
+      "\tsyscall",
+      "\tret",
+      "\t; -------------------------------------------------------------------------"
+    ],
+    "description": "Boilerplate for getMemory"
+  },
+
+  "freeMemory": {
+    "prefix": "freeMemory",
+    "body": [
+      "\t; -------------------------------------------------------------------------",
+      "freeMemory:",
+      "\tmov rax, 11",
+      "\tsyscall",
+      "\tret",
+      "\t; -------------------------------------------------------------------------"
+    ],
+    "description": "Boilerplate for freeMemory"
+  },
+  "": {
+    "prefix": "",
     "body": [
       "\t; -------------------------------------------------------------------------",
       "\t; $0",
       "\t; -------------------------------------------------------------------------"
     ],
-    "description": "Comment block divider"
+    "description": "Boilerplate for "
   }
 }
