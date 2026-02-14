@@ -436,6 +436,18 @@
     ],
     "description": "Boilerplate for freeMemory"
   },
+  "sleep": {
+    "prefix": "sleep",
+    "body": [
+      "; rsi (pointer) = how many seconds to sleep",
+      "sleep:",
+      "\tmov rax, 35",
+      "\txor rsi, rsi",
+      "\tsyscall"
+    ],
+    "description": "Boilerplate for sleep"
+  },
+
   "": {
     "prefix": "",
     "body": [
