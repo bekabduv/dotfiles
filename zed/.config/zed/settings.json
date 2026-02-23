@@ -39,7 +39,9 @@
     "auto_fold_dirs": false,
   },
   "agent": {
-    "always_allow_tool_actions": true,
+    "tool_permissions": {
+      "default": "allow"
+    },
     "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
@@ -84,8 +86,8 @@
   "buffer_font_features": { "calt": false, "liga": false },
   "theme": {
     "mode": "light",
-    "light": "Gruvbox Light Hard",
-    "dark": "Gruvbox Dark Hard",
+    "light": "Metal Rose",
+    "dark": "Ayu Dark",
   },
   "diagnostics": {
     "inline": {

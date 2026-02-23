@@ -12,17 +12,17 @@
       "settings": {
         "typescript": {
           "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
+            "enabled": "always",
+          },
         },
         "javascript": {
           "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
-        }
+            "enabled": "always",
+          },
+        },
       },
-      "enable_lsp_tasks": true
-    }
+      "enable_lsp_tasks": true,
+    },
   },
   "buffer_font_weight": 550.0,
   "buffer_font_family": ".ZedMono",
@@ -58,7 +58,7 @@
   },
   "relative_line_numbers": "disabled",
   "show_edit_predictions": false,
-  "disable_ai": true,
+  "disable_ai": false,
   "gutter": {
     "line_numbers": false,
     "min_line_number_digits": 2,
@@ -84,8 +84,8 @@
   "buffer_font_features": { "calt": false, "liga": false },
   "theme": {
     "mode": "light",
-    "light": "Gruvbox Light Hard",
-    "dark": "Gruvbox Dark Hard",
+    "light": "Metal Rose",
+    "dark": "Ayu Dark",
   },
   "diagnostics": {
     "inline": {
