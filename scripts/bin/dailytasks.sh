@@ -3,7 +3,6 @@
 
 if ! ping -c 1 8.8.8.8 &>/dev/null; then
   echo "_____YOU ARE OFFLINE_____"
-  exit 1
 fi
 
 # kdialog --yesno "Sync VAULT and push dotfiles?"
@@ -14,6 +13,12 @@ fi
 
 # Backup lxqt config
 cp -r "$HOME"/.config/lxqt/* "$HOME"/VAULT/lxqt.bak
+
+# Prune zsh history
+vim -c ': g/clear/d esc :wq' "$HOME/.zsh_history"
+vim -c ': g/exit/d esc :wq' "$HOME/.zsh_history"
+vim -c ': g/python/d esc :wq' "$HOME/.zsh_history"
+exit 1
 
 cd ~/dotfiles
 git add .
