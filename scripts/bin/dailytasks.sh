@@ -13,12 +13,15 @@ fi
 
 # Backup lxqt config
 cp -r "$HOME"/.config/lxqt/* "$HOME"/VAULT/lxqt.bak
+rm "$HOME/dotfiles/zsh/.zsh_history"
+# Backup zsh history
+cp "$HOME/.zsh_history" "$HOME/dotfiles/zsh/"
 
 # Prune zsh history
-vim -c ': g/clear/d esc :wq' "$HOME/.zsh_history"
-vim -c ': g/exit/d esc :wq' "$HOME/.zsh_history"
-vim -c ': g/python/d esc :wq' "$HOME/.zsh_history"
-exit 1
+# Using vim or sed
+# vim -es -c 'g/;clear$/d' -c 'g/;exit$/d' -c 'wq' "$HOME/.zsh_history"
+# nvim --headless -u NONE -c 'g/;clear$/d' -c 'wq' "$HOME/.zsh_history"
+sed -i -e '/;clear$/d' -e '/;exit$/d' -e '/^$/d' "$HOME/.zsh_history"
 
 cd ~/dotfiles
 git add .
@@ -29,6 +32,8 @@ cd ~/VAULT
 git add .
 git commit -m "Auto-sync"
 git push
+
+# Remove this section if you don't want to shutdown after dailytasks
 
 cowsay_output_len=0
 for x in {3..0}; do

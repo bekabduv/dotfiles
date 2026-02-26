@@ -56,6 +56,7 @@ PACKAGES=(
   clang
   luarocks
   ripgrep
+  lsd
   lazygit
   neovim
   xdotool # This works on x11
@@ -192,8 +193,19 @@ if confirm "Install ohmyzsh, autosuggestions, syntax-highlighting and starship?"
   echo "export EDITOR='nvim'" >>"$HOME/.zshrc"
   echo "export VISUAL='nvim'" >>"$HOME/.zshrc"
 
-  if confirm "Setup light/dark nvim versions?"; then
+  # Make zsh not store duplicate history like clear, exit, ...
+  echo "setopt HIST_IGNORE_ALL_DUPS" >>"$HOME/.zshrc"
 
+  if confirm "Want to bring over your old zsh history?"; then
+    echo "Please run these commands if you have zsh history somewhere else\
+      other than ~/dotfiles/zsh/.zsh_history: \
+      fc -R path/to/old/history\
+      fc -W ~/.zsh_history\
+      fc -R ~/.zsh_history"
+    confirm "Continue with the defaults?"
+    fc -R "$/HOME/dotfiles/zsh/.zsh_history"
+    fc -W "$/HOME/.zsh_history"
+    fc -R "$/HOME/.zsh_history"
   fi
 
   # Change default shell
