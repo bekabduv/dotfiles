@@ -13,25 +13,31 @@ fi
 
 # Backup lxqt config
 cp -r "$HOME"/.config/lxqt/* "$HOME"/VAULT/lxqt.bak
+echo 'Copied lxqt configs to lxqt.bak'
+
 rm "$HOME/dotfiles/zsh/.zsh_history"
 # Backup zsh history
 cp "$HOME/.zsh_history" "$HOME/dotfiles/zsh/"
+echo 'Backed up zsh history'
 
 # Prune zsh history
 # Using vim or sed
 # vim -es -c 'g/;clear$/d' -c 'g/;exit$/d' -c 'wq' "$HOME/.zsh_history"
 # nvim --headless -u NONE -c 'g/;clear$/d' -c 'wq' "$HOME/.zsh_history"
 sed -i -e '/;clear$/d' -e '/;exit$/d' -e '/python/d' -e '/^$/d' "$HOME/.zsh_history"
+echo 'Pruned duplicate history items'
 
 cd ~/dotfiles
 git add .
 git commit -m "Auto-sync"
 git push
+echo 'Pushed dotfiles'
 
 cd ~/VAULT
 git add .
 git commit -m "Auto-sync"
 git push
+echo 'Pushed VAULT'
 
 # Remove this section if you don't want to shutdown after dailytasks
 
