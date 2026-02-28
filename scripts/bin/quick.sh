@@ -27,7 +27,6 @@ SELECTED=$(kdialog --menu "__________Found $(echo "$RESULTS" | wc -l) results. S
 [ -z "$SELECTED" ] && exit 0
 
 # Start serving
-
 BUN_DEV="cd $SELECTED && bun dev; exec zsh"
 PNPM_DEV="cd $SELECTED && pnpm run dev; exec zsh"
 NPM_DEV="cd $SELECTED && npm run dev; exec zsh"
