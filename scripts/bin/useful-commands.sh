@@ -6,7 +6,7 @@ hostname -I | awk '{print $1}' | xsel --clipboard --input
 # to the Vite command itself, not npm
 npm run dev -- --host
 # Also make run these if you have problems with firewall when using vite
-sudo firewall-cmd --permanent --add-port=5173/tcp
+sudo firewall-cmd --permanent --add-port=3000-9000/tcp # --zone=public is automatically iferred
 sudo firewall-cmd --reload
 
 # Rename files in a directory

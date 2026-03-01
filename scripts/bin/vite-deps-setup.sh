@@ -7,9 +7,9 @@ fi
 
 confirm() {
   while true; do
-    read -pr "{$1:-Continue?} (Y/n): " response
+    read -rp "${1:-Continue?} (Y/n): " response
     case "$response" in
-    [Ys])
+    [Yy])
       return 0
       ;;
     [Nn])
