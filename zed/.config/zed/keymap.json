@@ -43,6 +43,7 @@
       "space space": "file_finder::Toggle",
       "alt-i": "editor::CopyFileName",
       "alt-p": ["workspace::SendKeystrokes", "alt-i p"],
+      "ctrl-f": "workspace::SaveWithoutFormat",
     },
   },
   {

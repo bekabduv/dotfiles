@@ -60,6 +60,9 @@ Hello
 World
 EOF
 
+# Add/Insert a text into a line of a file (e.g. line 5)
+sed -i "5i$someText" path/to/file
+
 # Prepend to a file
 # This checks first if the line already exists
 grep -qxF '@import "tailwindcss";' src/index.css || \

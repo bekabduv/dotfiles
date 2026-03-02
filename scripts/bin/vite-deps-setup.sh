@@ -24,16 +24,22 @@ confirm() {
 }
 
 if confirm "Setup tailwindcss?"; then
-  config="vite.config.js"
-  npm i -D tailwindcss @tailwindcss/vite
-  grep -q "tailwindcss" "$config" ||
-    sed -i '1i import tailwindcss from "@tailwindcss/vite"' "$config" # 1i inset to line 1
-  sed -i '/plugins: \[/a \    tailwindcss(),' "$config"
-  grep -qxF '@import "tailwindcss";' src/index.css ||
+  # npm i -D tailwindcss @tailwindcss/vite
+  if ! grep -q "tailwindcss" vite.config.*s; then
+    sed -i '1i import tailwindcss from "@tailwindcss/vite"' vite.config.*s # 1i inset to line 1
+  fi
+
+  if ! grep -q "tailwindcss()" vite.config.*s; then
+    sed -i '0,/plugins: \[/ s/plugins: \[/&\n    tailwindcss(),/' vite.config.*s
+    # 0,/pattern/ matches only the first match
+  fi
+
+  if ! grep -qxF '@import "tailwindcss";' src/index.css; then
     {
       echo '@import "tailwindcss";'
       cat src/index.css
     } >tmp && mv tmp src/index.css
+  fi
 fi
 
 if confirm "Install lucide-react?"; then
