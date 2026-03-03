@@ -1,3 +1,6 @@
+echo "THIS FILE IS NOT SUPPOSED TO BE EXECUTED"
+exit 0
+
 # This copies pc's own ip address to system clipboard
 hostname -I | awk '{print $1}' | xsel --clipboard --input
 
@@ -10,25 +13,37 @@ sudo firewall-cmd --permanent --add-port=3000-9000/tcp # --zone=public is automa
 sudo firewall-cmd --reload
 
 # Rename files in a directory
-i=((0))
+i=((0));
 for file in path/to/dir/*; do
-  mv "$file" "file$i"
-  i=((i+1))
+  mv "$file" "file$i";
+  i=((i+1));
 done;
 
 # Make a template or boilerplate
-i=((0))
+# Create a boilerplate json file or some other kind
+i=$((0));
 echo "[" >> src/data/items.json
 for photo in public/*; do
   echo "{
-  \"id\": $i,
-  \"name\": \"\",
-  \"price\": 10,
-  \"url\": \"photo$i\"
-}," >> src/data/items.json
-  i=$((i+1))
-done
+    \"id\": $i,
+    \"name\": \"photo$i\",
+    \"price\": 10,
+    \"url\": \"photo$i.jpg\"
+  }," >> src/data/items.json
+i=$((i+1));
+done;
 echo "]" >> src/data/items.json;
+
+# Create a boilerplate like importing components automatically
+# Components should have the same name as the filename
+# DIR is the directory from where to import files
+DIR=src/components
+for file in "$DIR/"*; do
+  BASENAME="$(basename "$file")"
+  COMPONENT="${BASENAME%.*}"
+  echo "import $COMPONENT from \"$DIR/$COMPONENT\"" >> src/components/Demo.tsx
+done
+
 
 # Get the names of the files in a directory
 basename /path/to/file # basename automatically prints the basename of files
@@ -41,6 +56,18 @@ for file in /path/to/dir/*; do
   # echo "${file##*/}"
 done
 
+# Store filenames in an array
+files=()
+for file in src/Components/*; do
+  files+=("$(basename "$file")")
+done;
+
+# Bulk raname files in a directory
+count=$((0))
+for file in public/*; do
+  mv "$file" "file$count.jpg" # a8da87akjda8ad8haa.jpg -> file1.jpg ...
+  count=$((count+1))
+done;
 
 # Remove extensions from files
 filepath="example.txt"
