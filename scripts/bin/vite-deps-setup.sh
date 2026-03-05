@@ -24,7 +24,7 @@ confirm() {
 }
 
 if confirm "Setup tailwindcss?"; then
-  # npm i -D tailwindcss @tailwindcss/vite
+  npm i -D tailwindcss @tailwindcss/vite
   if ! grep -q "tailwindcss" vite.config.*s; then
     sed -i '1i import tailwindcss from "@tailwindcss/vite"' vite.config.*s # 1i inset to line 1
   fi
