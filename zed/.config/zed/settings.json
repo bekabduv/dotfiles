@@ -8,6 +8,9 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "agent_servers": {
+    "gemini": {
+      "type": "registry"
+    },
     "opencode": {
       "type": "registry"
     }
@@ -50,7 +53,7 @@
     "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-5-mini",
+      "model": "claude-haiku-4.5",
     },
     "inline_assistant_model": {
       "provider": "copilot_chat",
@@ -77,8 +80,8 @@
     "show": "never",
   },
   "telemetry": {
-    "diagnostics": false,
-    "metrics": false,
+    "diagnostics": true,
+    "metrics": true,
   },
   "vim_mode": true,
   "icon_theme": {
