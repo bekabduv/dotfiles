@@ -3,3 +3,8 @@
 -- Add any additional options here
 
 vim.g.root_spec = { "lsp", { "README.md", "package.json", "biome.json", ".git" }, "cwd" }
+
+if os.getenv("SSH_TTY") or os.getenv("SSH_CONNECTION") then
+  vim.g.clipboard = "osc52"
+  vim.opt.clipboard = "unnamedplus"
+end
