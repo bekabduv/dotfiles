@@ -56,7 +56,7 @@
     "tool_permissions": {
       "default": "allow"
     },
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
       "enable_thinking": true,
       "provider": "copilot_chat",
