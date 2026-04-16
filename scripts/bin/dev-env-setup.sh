@@ -43,7 +43,7 @@ PACKAGES=(
   wget
   stow
   python3
-  nodejs
+  # nodejs
   fzf
   btop
   kitty
@@ -148,6 +148,8 @@ fi
 
 # Install Bun
 confirm "Install Bun?" && curl -fsSL https://bun.sh/install | bash
+
+confirm "Intall fnm?" && curl -fsSL https://fnm.vercel.app/install | bash
 
 if confirm "Enable nuclear option"; then
   echo 'kernel.sysrq = 1' | sudo tee /etc/sysctl.d/99-sysrq.conf
