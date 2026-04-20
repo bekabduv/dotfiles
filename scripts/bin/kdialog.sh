@@ -31,3 +31,7 @@ SELECTED=$(kdialog --menu "__________Found $COUNT results. Select one: _________
 # Open appropriately based on what was selected
 [ -d "$SELECTED" ] && kitty --directory="$SELECTED" nvim
 [ -f "$SELECTED" ] && kitty -e nvim "$SELECTED"
+
+# Use this version of nvim-light
+# [ -d "$SELECTED" ] && kitty --directory="$SELECTED" env NVIM_APPNAME=nvim-light nvim
+# [ -f "$SELECTED" ] && kitty -e env NVIM_APPNAME=nvim-light nvim "$SELECTED"

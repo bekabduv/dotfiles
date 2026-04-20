@@ -7,35 +7,19 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "restore_on_startup": "last_session",
   "edit_predictions": {
-    "provider": "zed"
+    "provider": "zed",
   },
   "agent_servers": {
     "codex-acp": {
-      "type": "registry"
+      "type": "registry",
     },
     "gemini": {
-      "type": "registry"
+      "type": "registry",
     },
     "opencode": {
-      "type": "registry"
-    }
-  },
-  "lsp": {
-    "vtsls": {
-      "settings": {
-        "typescript": {
-          "updateImportsOnFileMove": {
-            "enabled": "always",
-          },
-        },
-        "javascript": {
-          "updateImportsOnFileMove": {
-            "enabled": "always",
-          },
-        },
-      },
-      "enable_lsp_tasks": true,
+      "type": "registry",
     },
   },
   "buffer_font_weight": 550.0,
@@ -54,7 +38,7 @@
   },
   "agent": {
     "tool_permissions": {
-      "default": "allow"
+      "default": "allow",
     },
     "default_profile": "ask",
     "default_model": {
@@ -111,10 +95,23 @@
   },
   "language_servers": [
     "biome",
+    "tsgo",
+    "unocss-language-server",
+    "!tailwindcss-language-server",
+    "!vtsls",
     "!eslint",
+    "!tailwindcss-language-server",
     "!typescript-language-server",
     "...",
   ],
+  "lsp": {
+    "tailwindcss-language-server": {
+      "binary": {
+        "path": "bunx",
+        "arguments": ["--bun", "tailwindcss-language-server", "--stdio"],
+      },
+    },
+  },
   "file_types": {
     "Plain Text": ["asm", "s"],
   },
