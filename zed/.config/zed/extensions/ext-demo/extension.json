@@ -1,0 +1,5 @@
+{
+  "name": "zed-hello",
+  "version": "0.1.0",
+  "main": "zed_hello.wasm"
+}
