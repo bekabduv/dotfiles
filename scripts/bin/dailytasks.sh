@@ -52,4 +52,4 @@ for x in {3..0}; do
 done
 
 echo "Shutting down now"
-shutdown now
+# shutdown now

@@ -108,3 +108,6 @@ elif [[ -f /etc/redhat-release ]]; then
 else
   echo "Unknown Linux distribution"
 fi
+
+# File contents into clipboard
+xsel --clipboard --input < file
