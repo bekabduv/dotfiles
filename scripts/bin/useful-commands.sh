@@ -109,5 +109,5 @@ else
   echo "Unknown Linux distribution"
 fi
 
-# File contents into clipboard
+# Copy File contents into clipboard
 xsel --clipboard --input < file
