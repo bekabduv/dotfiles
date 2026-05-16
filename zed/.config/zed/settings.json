@@ -51,9 +51,9 @@
     "tool_permissions": {
       "default": "allow",
     },
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
-      "effort": "high",
+      "effort": "max",
       "enable_thinking": true,
       "provider": "zed.dev",
       "model": "claude-sonnet-4-6",
