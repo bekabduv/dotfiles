@@ -24,7 +24,7 @@ echo 'Backed up zsh history'
 # Using vim or sed
 # vim -es -c 'g/;clear$/d' -c 'g/;exit$/d' -c 'wq' "$HOME/.zsh_history"
 # nvim --headless -u NONE -c 'g/;clear$/d' -c 'wq' "$HOME/.zsh_history"
-sed -i -e '/;clear$/d' -e '/;exit$/d' -e '/python/d' -e '/^$/d' "$HOME/.zsh_history"
+sed -i -e '/;clear$/d' -e '/;exit$/d' -e '/^$/d' "$HOME/.zsh_history"
 echo 'Pruned duplicate history items'
 
 cd ~/dotfiles
