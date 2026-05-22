@@ -60,6 +60,10 @@ if confirm "Add Solidjs"; then
   $PMX astro add solid
 fi
 
+if confirm "Add makePersisted (@solid-primitives/storage)"; then
+  $PM $COMMAND @solid-primitives/storage
+fi
+
 if confirm "Add tailwindcss"; then
   $PMX astro add tailwind
 fi
@@ -75,6 +79,10 @@ fi
 # Simple libaries are installed like npm i [name]
 # but if i changes how the site runs, changes config files then npx astro add [name]
 
-if confirm "Add Lucide"; then
+if confirm "Add @lucide/astro"; then
   $PM $COMMAND @lucide/astro
+fi
+
+if confirm "Add lucide-solid@next?"; then
+  $PM $COMMAND lucide-solid@next
 fi

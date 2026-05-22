@@ -149,7 +149,7 @@ fi
 # Install Bun
 confirm "Install Bun?" && curl -fsSL https://bun.sh/install | bash
 
-confirm "Intall fnm?" && curl -fsSL https://fnm.vercel.app/install | bash
+confirm "Intall fnm (fast node manager)?" && curl -fsSL https://fnm.vercel.app/install | bash
 
 if confirm "Enable nuclear option"; then
   echo 'kernel.sysrq = 1' | sudo tee /etc/sysctl.d/99-sysrq.conf
@@ -191,7 +191,7 @@ if confirm "Install ohmyzsh, autosuggestions, syntax-highlighting and starship?"
   # Or gruvbox-rainbow preset
   # starship preset gruvbox-rainbow -o "$HOME/.config/starship.toml"
 
-  # Make nvim default editor
+  # Make nvim default terminal editor
   echo "export EDITOR='nvim'" >>"$HOME/.zshrc"
   echo "export VISUAL='nvim'" >>"$HOME/.zshrc"
 
@@ -217,3 +217,6 @@ if confirm "Install ohmyzsh, autosuggestions, syntax-highlighting and starship?"
     echo "LOGOUT AND LOG BACK IN TO APPLY THE CHANGES"
   fi
 fi
+
+# ADITIONALLY:
+# npm i -g @biomejs/biome
