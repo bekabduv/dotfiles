@@ -1,0 +1,30 @@
+{
+  "Solidjs Component": {
+    "prefix": "sfc",
+    "body": [
+      "const ${1:SomeComponent} = () => {",
+      "\treturn",
+      "};",
+      "",
+      "export default ${1:SomeComponent};"
+    ],
+    "description": "Solidjs ts snippet"
+  },
+  "Solidjs Component Typed": {
+    "prefix": "sfcc",
+    "body": [
+      "import type { Component } from 'solid-js';",
+      "",
+      "type Props = {",
+      "\tclassName?: string;",
+      "}",
+      "",
+      "const ${1:SomeComponent}: Component<Props> = () => {",
+      "\treturn",
+      "}",
+      "",
+      "export default ${1:SomeComponent}"
+    ],
+    "description": "Solidjs ts snippet"
+  }
+}

@@ -7,22 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "agent_servers": {
-    
-  },
+  "agent_servers": {},
   "project_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "agent": {
     "default_profile": "ask",
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-haiku-4-5",
-      "enable_thinking": false
+      "enable_thinking": false,
     },
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "bottom_dock_layout": "left_aligned",
   "restore_on_startup": "last_session",
@@ -34,7 +32,7 @@
   "ui_font_family": ".ZedSans",
   "ui_font_weight": 550.0,
   "format_on_save": "on",
-  "colorize_brackets": false,
+  "colorize_brackets": true,
   "indent_guides": {
     "coloring": "indent_aware",
     "background_coloring": "disabled",
@@ -51,7 +49,7 @@
   "gutter": {
     "line_numbers": false,
     "min_line_number_digits": 2,
-    "folds": false,
+    "folds": true,
     "breakpoints": false,
     "runnables": false,
   },
