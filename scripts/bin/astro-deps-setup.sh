@@ -42,15 +42,15 @@ if [[ -f "./bun.lock" ]] || [[ -f "./bun.lockb" ]]; then
 elif [[ -f "./pnpm-lock.yaml" ]]; then
   PM="pnpm"
   PMX="pnpm dlx"
-  COMMAND="pnpm add"
+  COMMAND="add"
 elif [[ -f "./package-lock.json" ]]; then
   PM="npm"
   PMX="npx"
-  COMMAND="npm install"
+  COMMAND="install"
 elif [[ -f "./yarn.lock" ]]; then
   PM="yarn"
   PMX="yarn dlx"
-  COMMAND="yarn add"
+  COMMAND="add"
 else
   echo "Could Not Detect Package Manager"
   exit 1

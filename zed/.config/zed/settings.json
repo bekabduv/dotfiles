@@ -12,11 +12,12 @@
     "dock": "left",
   },
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
+      "effort": "MEDIUM",
       "provider": "zed.dev",
-      "model": "claude-haiku-4-5",
-      "enable_thinking": false,
+      "model": "gemini-3.5-flash",
+      "enable_thinking": true,
     },
     "dock": "right",
     "favorite_models": [],
