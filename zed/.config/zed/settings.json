@@ -14,9 +14,9 @@
   "agent": {
     "default_profile": "write",
     "default_model": {
-      "effort": "MEDIUM",
+      "effort": "high",
       "provider": "zed.dev",
-      "model": "gemini-3.5-flash",
+      "model": "claude-sonnet-4-6",
       "enable_thinking": true,
     },
     "dock": "right",
