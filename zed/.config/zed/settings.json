@@ -22,7 +22,7 @@
     "dock": "left",
   },
   "agent": {
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",
       "model": "claude-haiku-4.5",
