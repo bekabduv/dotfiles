@@ -8,13 +8,13 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "git_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "agent_servers": {},
   "project_panel": {
@@ -100,11 +100,27 @@
     "!typescript-language-server",
     "...",
   ],
+  "languages": {
+    "Astro": {
+      "enable_language_server": true,
+      "show_completions_on_input": false,
+      "format_on_save": "off",
+      "formatter": "none",
+    },
+  },
+
   "lsp": {
     "tailwindcss-language-server": {
       "binary": {
         "path": "bunx",
         "arguments": ["--bun", "tailwindcss-language-server", "--stdio"],
+      },
+    },
+    "astro-language-server": {
+      "initialization_options": {
+        "typescript": {
+          "serverPath": "./node_modules/typescript/lib",
+        },
       },
     },
   },
