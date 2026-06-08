@@ -10,6 +10,7 @@
     ],
     "description": "Solidjs ts snippet"
   },
+
   "Solidjs Component Typed": {
     "prefix": "sfcc",
     "body": [
@@ -26,5 +27,148 @@
       "export default ${1:SomeComponent}"
     ],
     "description": "Solidjs ts snippet"
+  },
+
+  "React Component": {
+    "prefix": "rfc",
+    "body": [
+      "const ${1:ComponentName} = () => {",
+      "  return (",
+      "    <div>$0</div>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "React function component"
+  },
+
+  "React Component Typed": {
+    "prefix": "rfct",
+    "body": [
+      "type Props = {",
+      "  className?: string;",
+      "};",
+      "",
+      "const ${1:ComponentName} = ({ className }: Props) => {",
+      "  return (",
+      "    <div className={className}>$0</div>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "Typed React function component"
+  },
+
+  "React Native Component": {
+    "prefix": "rnf",
+    "body": [
+      "import { Text, View } from 'react-native';",
+      "",
+      "const ${1:ComponentName} = () => {",
+      "  return (",
+      "    <View>",
+      "      <Text>$1</Text>",
+      "    </View>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "React Native component"
+  },
+
+  "React Native Component Typed": {
+    "prefix": "rnft",
+    "body": [
+      "import { Text, View } from 'react-native';",
+      "",
+      "type Props = {",
+      "  className?: string;",
+      "};",
+      "",
+      "const ${1:ComponentName} = ({ className }: Props) => {",
+      "  return (",
+      "    <View>",
+      "      <Text>$1</Text>",
+      "    </View>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "Typed React Native component"
+  },
+
+  "Expo Router Screen": {
+    "prefix": "screen",
+    "body": [
+      "import { Text, View } from 'react-native';",
+      "",
+      "const ${1:HomeScreen} = () => {",
+      "  return (",
+      "    <View",
+      "      style={{",
+      "        flex: 1,",
+      "        justifyContent: 'center',",
+      "        alignItems: 'center',",
+      "      }}",
+      "    >",
+      "      <Text>$1</Text>",
+      "    </View>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:HomeScreen};"
+    ],
+    "description": "Expo Router screen"
+  },
+
+  "React useState": {
+    "prefix": "usestate",
+    "body": ["const [${1:value}, ${2:setValue}] = useState(${3:null});"],
+    "description": "React useState hook"
+  },
+
+  "React useEffect": {
+    "prefix": "useeffect",
+    "body": [
+      "useEffect(() => {",
+      "  $0",
+      "",
+      "  return () => {",
+      "  };",
+      "}, []);"
+    ],
+    "description": "React useEffect hook"
+  },
+
+  "React useMemo": {
+    "prefix": "usememo",
+    "body": ["const ${1:value} = useMemo(() => {", "  return $0;", "}, []);"],
+    "description": "React useMemo hook"
+  },
+
+  "React useCallback": {
+    "prefix": "usecallback",
+    "body": [
+      "const ${1:handleAction} = useCallback(() => {",
+      "  $0",
+      "}, []);"
+    ],
+    "description": "React useCallback hook"
+  },
+
+  "React Native StyleSheet": {
+    "prefix": "rnstyles",
+    "body": [
+      "const styles = StyleSheet.create({",
+      "  container: {",
+      "    flex: 1,",
+      "  },",
+      "});"
+    ],
+    "description": "React Native StyleSheet"
   }
 }
