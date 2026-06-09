@@ -12,7 +12,7 @@
   },
 
   "Solidjs Component Typed": {
-    "prefix": "sfcc",
+    "prefix": "sfct",
     "body": [
       "import type { Component } from 'solid-js';",
       "",
@@ -62,7 +62,7 @@
   },
 
   "React Native Component": {
-    "prefix": "rnf",
+    "prefix": "rnc",
     "body": [
       "import { Text, View } from 'react-native';",
       "",
@@ -80,7 +80,7 @@
   },
 
   "React Native Component Typed": {
-    "prefix": "rnft",
+    "prefix": "rnct",
     "body": [
       "import { Text, View } from 'react-native';",
       "",
