@@ -16,7 +16,9 @@
   "git_panel": {
     "dock": "left",
   },
-  "agent_servers": {},
+  "agent_servers": {
+    
+  },
   "project_panel": {
     "auto_fold_dirs": false,
     "dock": "left",
