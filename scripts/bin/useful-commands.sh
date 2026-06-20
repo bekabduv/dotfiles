@@ -111,3 +111,11 @@ fi
 
 # Copy File contents into clipboard
 xsel --clipboard --input < file
+
+# Genarate ts types in real time from api response
+curl -s https://www.googleapis.com/youtube/v3/videos\?id\=v6RxJsk8otY\&part\=snippet,contentD
+etails,statistics\&key\=YOURRRRRRRR_API_KEY | bunx quicktype -o src/youtube
+-data-api.ts --just-types
+
+# Or generally
+curl -s https://example.api.com | npx quicktype -o types.ts --just-types
