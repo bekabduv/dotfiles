@@ -46,11 +46,12 @@
   "React Component Typed": {
     "prefix": "rfct",
     "body": [
+      "import type { FC } from 'react';",
       "type Props = {",
       "  className?: string;",
       "};",
       "",
-      "const ${1:ComponentName} = ({ className }: Props) => {",
+      "const ${1:ComponentName}: FC<Props> = ({ className }) => {",
       "  return (",
       "    <div className={className}>$0</div>",
       "  );",
@@ -82,13 +83,13 @@
   "React Native Component Typed": {
     "prefix": "rnct",
     "body": [
+      "import type { FC } from 'react';",
       "import { Text, View } from 'react-native';",
       "",
       "type Props = {",
-      "  className?: string;",
       "};",
       "",
-      "const ${1:ComponentName} = ({ className }: Props) => {",
+      "const ${1:ComponentName}: FC<Props> = ({ }) => {",
       "  return (",
       "    <View>",
       "      <Text>$1</Text>",
