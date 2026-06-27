@@ -155,6 +155,11 @@ if confirm "Enable nuclear option"; then
   echo 'kernel.sysrq = 1' | sudo tee /etc/sysctl.d/99-sysrq.conf
 fi
 
+if confirm "Enable gnome-keyring for zed login session persistence?"; then
+  echo "Note that this might work only on lxqt"
+  sudo dnf install gnome-keyring seahorse
+fi
+
 # Install Oh My Zsh, autosuggestions, syntax-highlighting and starship
 # Using curl
 if confirm "Install ohmyzsh, autosuggestions, syntax-highlighting and starship?"; then
