@@ -24,11 +24,11 @@
     "dock": "left",
   },
   "agent": {
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
-      "effort": "high",
+      "effort": "minimal",
       "provider": "google",
-      "model": "gemini-3.5-flash",
+      "model": "gemini-3.1-flash-lite",
       "enable_thinking": true,
     },
     "dock": "right",
