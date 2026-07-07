@@ -28,9 +28,9 @@
   "agent": {
     "default_profile": "ask",
     "default_model": {
-      "effort": "high",
+      "effort": "minimal",
       "provider": "google",
-      "model": "gemini-3-flash-preview",
+      "model": "gemini-3.1-flash-lite",
       "enable_thinking": true,
     },
     "dock": "right",
