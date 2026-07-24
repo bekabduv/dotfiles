@@ -28,7 +28,7 @@
   "agent": {
     "default_profile": "write",
     "default_model": {
-      "effort": "medium",
+      "effort": "high",
       "provider": "google",
       "model": "gemini-3-flash-preview",
       "enable_thinking": true,
