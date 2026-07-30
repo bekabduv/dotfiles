@@ -18,19 +18,19 @@
   },
   "agent_servers": {
     "opencode": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "project_panel": {
     "auto_fold_dirs": false,
     "dock": "left",
   },
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
-      "effort": "high",
+      "effort": "medium",
       "provider": "google",
-      "model": "gemini-3-flash-preview",
+      "model": "gemini-3.5-flash",
       "enable_thinking": true,
     },
     "dock": "right",
@@ -94,17 +94,6 @@
       "enabled": true,
     },
   },
-  "language_servers": [
-    "biome",
-    "tsgo",
-    "unocss-language-server",
-    "!tailwindcss-language-server",
-    "!vtsls",
-    "!eslint",
-    "!tailwindcss-language-server",
-    "!typescript-language-server",
-    "...",
-  ],
   "languages": {
     "Astro": {
       "enable_language_server": true,
@@ -112,8 +101,55 @@
       "format_on_save": "off",
       "formatter": "none",
     },
+    "TypeScript": {
+      "language_servers": [
+        "biome",
+        "unocss-language-server",
+        "!vtsls",
+        "!eslint",
+        "!tailwindcss-language-server",
+        "!typescript-language-server",
+        "typescript-ls",
+        "...",
+      ],
+    },
+    "TSX": {
+      "language_servers": [
+        "biome",
+        "unocss-language-server",
+        "!vtsls",
+        "!eslint",
+        "!tailwindcss-language-server",
+        "!typescript-language-server",
+        "typescript-ls",
+        "...",
+      ],
+    },
+    "JavaScript": {
+      "language_servers": [
+        "biome",
+        "unocss-language-server",
+        "!vtsls",
+        "!eslint",
+        "!tailwindcss-language-server",
+        "!typescript-language-server",
+        "typescript-ls",
+        "...",
+      ],
+    },
+    "JSX": {
+      "language_servers": [
+        "biome",
+        "unocss-language-server",
+        "!vtsls",
+        "!eslint",
+        "!tailwindcss-language-server",
+        "!typescript-language-server",
+        "typescript-ls",
+        "...",
+      ],
+    },
   },
-
   "lsp": {
     "tailwindcss-language-server": {
       "binary": {
