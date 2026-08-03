@@ -149,6 +149,9 @@
         "...",
       ],
     },
+    "SQL": {
+      "language_servers": ["sql"],
+    },
   },
   "lsp": {
     "tailwindcss-language-server": {
