@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "existing_window",
   "outline_panel": {
     "dock": "left",
   },
@@ -26,11 +27,11 @@
     "dock": "left",
   },
   "agent": {
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
-      "effort": "medium",
+      "effort": "high",
       "provider": "google",
-      "model": "gemini-3.5-flash",
+      "model": "gemini-3-flash-preview",
       "enable_thinking": true,
     },
     "dock": "right",
