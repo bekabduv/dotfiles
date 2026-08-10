@@ -6,7 +6,7 @@ set -e
 INPUT=$(kdialog --inputbox "Enter a dir or file")
 [[ -z "$INPUT" ]] && exit 0
 
-RESULTS=$(fd "$INPUT" ~ ~/.config $(echo ~/dotfiles/*/.config))
+RESULTS=$(fd -p "$INPUT" ~/VAULT/blueprints ~/Projects)
 
 [[ -z "$RESULTS" ]] && kdialog --error "No result" && exit 0
 

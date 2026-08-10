@@ -101,6 +101,17 @@
       "show_completions_on_input": false,
       "format_on_save": "off",
       "formatter": "none",
+      "language_servers": [
+        "typescript-ls",
+        "biome",
+        "unocss-language-server",
+        "!vtsls",
+        "!eslint",
+        "!tailwindcss-language-server",
+        "!typescript-language-server",
+        "!json-language-server",
+        "...",
+      ],
     },
     "TypeScript": {
       "language_servers": [

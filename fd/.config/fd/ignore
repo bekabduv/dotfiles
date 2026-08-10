@@ -1,0 +1,214 @@
+# ==============================================================================
+# EXTENSIVE GLOBAL IGNORE FILE FOR FD / RIPGREP
+# Save this as ~/.config/fd/ignore (Linux/macOS) or %APPDATA%\fd\ignore (Windows)
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Version Control Systems
+# ------------------------------------------------------------------------------
+.git/
+.github/
+.gitlab/
+.hg/
+.svn/
+CVS/
+
+# ------------------------------------------------------------------------------
+# Package Managers & Dependencies
+# ------------------------------------------------------------------------------
+node_modules/
+bower_components/
+jspm_packages/
+.pnp/
+.pnp.*
+.yarn/
+pnpm-lock.yaml
+package-lock.json
+bun.lockb
+
+# Python
+.venv/
+venv/
+ENV/
+env/
+.env/
+bin/
+lib/
+lib64/
+share/
+include/
+pip-wheel-metadata/
+.poetry/
+.pdm/
+
+# Rust / Cargo
+target/
+Cargo.lock
+
+# PHP / Composer
+vendor/
+
+# Ruby / Bundler
+.bundle/
+vendor/bundle/
+
+# Go
+/vendor/
+pkg/mod/
+
+# Java / Gradle / Maven
+.gradle/
+build/
+target/
+.mtj.tmp/
+*.class
+
+# .NET / C#
+bin/
+obj/
+*.suo
+*.user
+*.sln.docstates
+
+# ------------------------------------------------------------------------------
+# IDEs, Editors & Tools
+# ------------------------------------------------------------------------------
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.code-workspace
+
+# JetBrains (IntelliJ, WebStorm, PyCharm, etc.)
+.idea/
+*.iml
+*.iws
+
+# Vim & Emacs
+*~
+*.swp
+*.swo
+.netrwhist
+\#*\#
+.#*
+
+# Other Editors
+.project
+.classpath
+.settings/
+.factorypath
+.eclipse/
+
+# ------------------------------------------------------------------------------
+# Build Outputs, Bundlers & Caches
+# ------------------------------------------------------------------------------
+dist/
+out/
+_site/
+.next/
+.nuxt/
+.vuepress/dist
+.docusaurus/
+.turbo/
+.cache/
+.parcel-cache/
+.eslintcache
+.prettiercache
+.stylelintcache
+.tsbuildinfo
+.sass-cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+htmlcov/
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# ------------------------------------------------------------------------------
+# Operating System Garbage & Metadata
+# ------------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.VolumeIcon.icns
+.com.apple.timemachine.donotbackup
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+System Volume Information/
+*.lnk
+
+# Linux
+.Trash-*/
+.nfs*
+
+# ------------------------------------------------------------------------------
+# Logs, Databases & Backups
+# ------------------------------------------------------------------------------
+*.log
+*.log.*
+log/
+logs/
+*.sqlite
+*.sqlite3
+*.db
+*.bak
+*.old
+*.tmp
+*.temp
+*.swp
+
+# ------------------------------------------------------------------------------
+# Binary, Compressed & Large Media Files
+# ------------------------------------------------------------------------------
+# Images & Video
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.ico
+*.svg
+*.mp4
+*.mov
+*.avi
+*.mv
+
+# Archives
+*.zip
+*.tar
+*.gz
+*.tgz
+*.rar
+*.7z
+*.bz2
+
+# Documents
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+
+# Compiled Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.bin
+
+
+.wrangler
