@@ -121,6 +121,7 @@
         "!eslint",
         "!tailwindcss-language-server",
         "!typescript-language-server",
+        "!json-language-server",
         "typescript-ls",
         "...",
       ],
@@ -133,6 +134,7 @@
         "!eslint",
         "!tailwindcss-language-server",
         "!typescript-language-server",
+        "!json-language-server",
         "typescript-ls",
         "...",
       ],
@@ -145,6 +147,7 @@
         "!eslint",
         "!tailwindcss-language-server",
         "!typescript-language-server",
+        "!json-language-server",
         "typescript-ls",
         "...",
       ],
@@ -157,6 +160,21 @@
         "!eslint",
         "!tailwindcss-language-server",
         "!typescript-language-server",
+        "!json-language-server",
+        "typescript-ls",
+        "...",
+      ],
+    },
+    "Vue.js": {
+      "language_servers": [
+        "biome",
+        "vue-language-server",
+        "unocss-language-server",
+        "!vtsls",
+        "!eslint",
+        "!tailwindcss-language-server",
+        "!typescript-language-server",
+        "!json-language-server",
         "typescript-ls",
         "...",
       ],
@@ -176,6 +194,13 @@
       "initialization_options": {
         "typescript": {
           "serverPath": "./node_modules/typescript/lib",
+        },
+      },
+    },
+    "vue-language-server": {
+      "initialization_options": {
+        "typescript": {
+          "tsdk": "./node_modules/typescript/lib",
         },
       },
     },
