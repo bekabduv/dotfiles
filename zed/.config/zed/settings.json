@@ -27,11 +27,16 @@
     "dock": "left",
   },
   "agent": {
+    "inline_assistant_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash",
+      "enable_thinking": false
+    },
     "default_profile": "ask",
     "default_model": {
-      "effort": "high",
+      "effort": "medium",
       "provider": "google",
-      "model": "gemini-3-flash-preview",
+      "model": "gemini-3.6-flash",
       "enable_thinking": true,
     },
     "dock": "right",
