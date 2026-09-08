@@ -30,7 +30,7 @@
     "inline_assistant_model": {
       "provider": "google",
       "model": "gemini-2.5-flash",
-      "enable_thinking": false
+      "enable_thinking": false,
     },
     "default_profile": "ask",
     "default_model": {
@@ -122,12 +122,12 @@
       "language_servers": [
         "biome",
         "unocss-language-server",
-        "vtsls",
+        "!vtsls",
         "!eslint",
         "!tailwindcss-language-server",
         "!typescript-language-server",
         "!json-language-server",
-        "!typescript-ls",
+        "typescript-ls",
         "...",
       ],
     },
@@ -135,12 +135,12 @@
       "language_servers": [
         "biome",
         "unocss-language-server",
-        "vtsls",
+        "!vtsls",
         "!eslint",
         "!tailwindcss-language-server",
         "!typescript-language-server",
         "!json-language-server",
-        "!typescript-ls",
+        "typescript-ls",
         "...",
       ],
     },
@@ -148,12 +148,12 @@
       "language_servers": [
         "biome",
         "unocss-language-server",
-        "vtsls",
+        "!vtsls",
         "!eslint",
         "!tailwindcss-language-server",
         "!typescript-language-server",
         "!json-language-server",
-        "!typescript-ls",
+        "typescript-ls",
         "...",
       ],
     },
@@ -166,7 +166,7 @@
         "!tailwindcss-language-server",
         "!typescript-language-server",
         "!json-language-server",
-        "!typescript-ls",
+        "typescript-ls",
         "...",
       ],
     },
@@ -187,22 +187,34 @@
     "SQL": {
       "language_servers": ["sql"],
     },
+    "JSON": {
+      "language_servers": ["json-language-server"],
+    },
+    "JSONC": {
+      "language_servers": ["json-language-server"],
+    },
+    "YAML": {
+      "language_servers": ["yaml-language-server"],
+    },
+    "Shell Script": {
+      "language_servers": ["bash-language-server"],
+    },
   },
   "lsp": {
     "vtsls": {
       "settings": {
         "typescript": {
           "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
+            "enabled": "always",
+          },
         },
         "javascript": {
           "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
-        }
+            "enabled": "always",
+          },
+        },
       },
-      "enable_lsp_tasks": true
+      "enable_lsp_tasks": true,
     },
     "tailwindcss-language-server": {
       "binary": {
